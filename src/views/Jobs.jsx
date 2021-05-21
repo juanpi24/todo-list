@@ -115,22 +115,22 @@ handleNewJobsCountry(event){
 <div className="panel-heading">
 <h3 className="panel-title">Cargar Trabajos</h3>
 </div>
-<div className="panel-body">
+<div className="panel-body list-group-item mb-3">
     
-        <form onSubmit={(e) => this.onNewJobstSubmit(e)}>
-        <div class="form-group col-sm-5">
+        <form clasName="" onSubmit={(e) => this.onNewJobstSubmit(e)}>
+        <div class="form-group col-sm-6">
             <input  class="form-control" type="text" required placeholder="Ingrese Nombre" type="text"  value={this.state.newJobs.name} onChange={(e) => this.handleNewJobsName(e)}/> 
         </div>
-        <div class="form-group col-sm-5">
+        <div class="form-group col-sm-6">
             <input  class="form-control" type="text" required placeholder="Ingrese Compañia" type="text"  value={this.state.newJobs.company} onChange={(e) => this.handleNewJobsCompany(e)}/> 
         </div>
-        <div class="form-group col-sm-5">
+        <div class="form-group col-sm-6">
             <input  class="form-control" type="text" required placeholder="Ingrese Ciudad" type="text"  value={this.state.newJobs.city} onChange={(e) => this.handleNewJobsCity(e)}/> 
         </div>
-        <div class="form-group col-sm-5">
+        <div class="form-group col-sm-6">
             <input  class="form-control" type="text" required placeholder="Ingrese Pais" type="text"  value={this.state.newJobs.country} onChange={(e) => this.handleNewJobsCountry(e)}/>
         </div>
-        <div class="form-group col-sm-5">
+        <div class="form-group col-sm-6">
        <button type="submit" class="btn btn-success">Agregar Oferta</button> 
        </div>
        </form>
