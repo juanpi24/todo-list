@@ -108,15 +108,14 @@ handleNewJobsCountry(event){
         <>
 
 <div class="container">
-<div class="row">
-<div class="col-sm-6">
 
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 class="panel-title">Cargar Trabajos</h3>
+<div className="row">
+<div className="col">
+<div className="panel panel-default">
+<div className="panel-heading">
+<h3 className="panel-title">Cargar Trabajos</h3>
 </div>
-<div class="panel-body">
+<div className="panel-body">
     
         <form onSubmit={(e) => this.onNewJobstSubmit(e)}>
         <div class="form-group col-sm-5">
@@ -131,7 +130,9 @@ handleNewJobsCountry(event){
         <div class="form-group col-sm-5">
             <input  class="form-control" type="text" required placeholder="Ingrese Pais" type="text"  value={this.state.newJobs.country} onChange={(e) => this.handleNewJobsCountry(e)}/>
         </div>
+        <div class="form-group col-sm-5">
        <button type="submit" class="btn btn-success">Agregar Oferta</button> 
+       </div>
        </form>
              
 </div>
@@ -139,22 +140,31 @@ handleNewJobsCountry(event){
 </div>
 
 
-<div class="col-sm-6">
-<div class="panel panel-default">
-<div class="panel-heading">
-<h2 class="panel-title">Lista de Trabajos</h2>
+
+<div className="col">
+<div className="panel panel-default">
+<div className="panel-heading">
+<h2 className="panel-title">Lista de Trabajos</h2>
 </div>
-<div class="panel-body">
-    <ul>
-        { this.state.jobs.map((elem,index) => {return <li key={index}>
-            <h3>{elem.name}</h3>
-            <p>{elem.company}</p>
-            <p>{elem.city}</p>
-            <p>{elem.country}</p>
+<div className="panel-body">
+    <ul className="list-group">
+   
+        { this.state.jobs.map((elem,index) => {return <li className="list-group-item mb-3" key={index}>
+          <h5>Trabajo</h5> 
+          {elem.name}
+          <h5>Compañia</h5>
+          {elem.company}
+          <h5>Ciudad</h5>
+          {elem.city}
+          <h5>Pais</h5>
+          {elem.country}
+         <p>  
             <button type="button" class="btn btn-danger" onClick={() => this.deleteJobs(index)}>Eliminar</button>
+        </p>
         </li>
-            
+           
         })}
+        
      </ul>
 </div>
 </div>
