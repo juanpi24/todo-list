@@ -1,12 +1,12 @@
 import React from 'react';
+import axios from 'axios';
 
 export class Jobs extends React.Component {
   constructor() {
     super();
     this.state = {
-      jobs:[
-      {name:'FrontEnd',company:'UNLaR',city:'La Rioja',country:'Argentina'},
-      ],
+      jobs:[ ],
+      withError:false,
       newJobs:{
           name:'',
           company:'',
@@ -16,8 +16,19 @@ export class Jobs extends React.Component {
     };
   }
 
-  /*Agrega Nuevo Trabajo*/
+componentDidMount(){
+    axios.get('https://my-json-server.typicode.com/juanpi24/fake-todo-list-api/jobs')
+         .then(res => this.setState({
+             jobs: res.data
+         }))
+         .catch(err => this.setState({
+             withError:TextTrackCue
+         }))
 
+}
+
+
+  /*Agrega Nuevo Trabajo*/
   addJobs (newJobs) {
     this.setState (
         {
@@ -108,7 +119,8 @@ handleNewJobsCountry(event){
         <>
 
 <div class="container">
-
+{this.state.withError && <div class="alert alert-primary" role="alert">Hubo un Error al Conectarse a la API de JOBS
+    </div>} 
 <div className="row">
 <div className="col">
 <div className="panel panel-default">
