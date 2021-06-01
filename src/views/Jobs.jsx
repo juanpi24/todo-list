@@ -17,7 +17,8 @@ export class Jobs extends React.Component {
   }
 
 componentDidMount(){
-    axios.get('https://my-json-server.typicode.com/juanpi24/fake-todo-list-api/jobs')
+   // axios.get('https://my-json-server.typicode.com/juanpi24/fake-todo-list-api/jobs')
+   axios.get('https://api-fake-pilar-tecno.herokuapp.com/jobs?_expand=organization')
          .then(res => this.setState({
              jobs: res.data
          }))
@@ -162,7 +163,7 @@ handleNewJobsCountry(event){
     <ul className="list-group">
    
         { this.state.jobs.map((elem,index) => {return <li className="list-group-item mb-3" key={index}>
-          <h5>Trabajo</h5> 
+         {/* <h5>Trabajos</h5>
           {elem.name}
           <h5>Compañia</h5>
           {elem.company}
@@ -170,9 +171,31 @@ handleNewJobsCountry(event){
           {elem.city}
           <h5>Pais</h5>
           {elem.country}
-         <p>  
+          */}
+
+ <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Position</th>
+      <th scope="col">Description</th>
+      <th scope="col">organization</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">{index}</th>
+      <td> {elem.position}</td>
+      <td> {elem.description}</td>
+      <td> {elem.organization.name}</td>
+      <td> <p>  
             <button type="button" class="btn btn-danger" onClick={() => this.deleteJobs(index)}>Eliminar</button>
-        </p>
+        </p></td>
+    </tr>
+  </tbody>
+</table>
+        
         </li>
            
         })}
